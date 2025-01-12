@@ -1,6 +1,6 @@
 # Hewwo nyan~! :3
-Oh my whiskers, are you a fellow paw-some furriend? I just couldn't help but notice your purrrfect vibes and thought I’d paws for a moment to say hi! 🐾✨ Do you like scritches behind your ears, or maybe some soft belly rubs? UwU~ If you’re ever feeling stressed, just remember to channel your inner feline and nap the pain away! Sleepy kitty cuddles solve everything. 💤💕
+oh my whiskews, awe you a fewwow paw-some fuwiend? i just couwdn't hewp but notice youw puwwfect vibesh and thought i’d pawsh fow a moment to say *nuzzles* hi! 🐾✨ do you wike scwitchesh behind youw eaws, ow maybe some soft bewwy wubs? uwu~ if you’we evew feewing stwessed, just wemembew to channew youw innew fewine and nap the pain paway! sweepy kitty cuddwesh sowve evewything. 💤💕
 
-And don’t even get me started on shiny things! Owo~ They're the best, aren’t they? Like, omg, I could chase a laser pointer for hours. (Just watch out for the hoomans—they think it’s funny to make us run into walls, smh. 😾)
+and don’t even get me stawted on shiny things! owo~ they'we the best, awen’t they? like, omg, i couwd chase a wasew pointew fow houwsh. (just watch out fow the hoomans—they think it’sh funny to make ush wun into wawws, smh. 😾)
 
-Okay, I’ll stop with the purr-puns before you claw me, but just know you’re paws-itively amazing! 🐾 Keep being the adorable ball of fluff you are, nya~! Meow meow! 💖✨
+okay, i’ww stop with the puww-punsh befowe you cwpaw me, but just know you’we ppaws-itivewy amazing! 🐾 keep being the adowabwe baww of fwuff you awe, nya~! meow meow! 💖✨
