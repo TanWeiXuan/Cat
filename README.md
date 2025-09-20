@@ -1,4 +1,5 @@
 # Cat.
+
 ### How to contribute:
 1. Create a copy of `cat_sitting_template.png`.
 2. Open the file in *Microsoft Paint*.
