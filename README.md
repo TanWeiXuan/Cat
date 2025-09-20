@@ -38,20 +38,20 @@
 |:--:|:--:|:--:|
 |[gojo](cats/cat_sitting_gojo.png)|[mario](cats/cat_sitting_mario.png)|[mimikyu](cats/cat_sitting_mimikyu.png)|
 
-|<img src="cats/cat_sitting_patrick.png" width="200" />|<img src="cats/cat_sitting_pepe.png" width="200" />|<img src="cats/cat_sitting_round_glasses.png" width="200" />|
+|<img src="cats/cat_sitting_patrick.png" width="200" />|<img src="cats/cat_sitting_pepe.png" width="200" />|<img src="cats/cat_sitting_potter.png" width="200" />|
 |:--:|:--:|:--:|
-|[patrick](cats/cat_sitting_patrick.png)|[pepe](cats/cat_sitting_pepe.png)|[glasses](cats/cat_sitting_round_glasses.png)|
+|[patrick](cats/cat_sitting_patrick.png)|[pepe](cats/cat_sitting_pepe.png)|[potter](cats/cat_sitting_potter.png)|
 
-|<img src="cats/cat_sitting_sharingan.png" width="200" />|<img src="cats/cat_sitting_sideeye.png" width="200" />|<img src="cats/cat_sitting_smug.png" width="200" />|
+|<img src="cats/cat_sitting_round_glasses.png" width="200" />|<img src="cats/cat_sitting_sharingan.png" width="200" />|<img src="cats/cat_sitting_sideeye.png" width="200" />|
 |:--:|:--:|:--:|
-|[sharingan](cats/cat_sitting_sharingan.png)|[sideeye](cats/cat_sitting_sideeye.png)|[smug](cats/cat_sitting_smug.png)|
+|[glasses](cats/cat_sitting_round_glasses.png)|[sharingan](cats/cat_sitting_sharingan.png)|[sideeye](cats/cat_sitting_sideeye.png)|
 
-|<img src="cats/cat_sitting_squidward.png" width="200" />|<img src="cats/cat_sitting_tobi.png" width="200" />|<img src="cats/cat_sitting_tobi_mask.png" width="200" />|
+|<img src="cats/cat_sitting_smug.png" width="200" />|<img src="cats/cat_sitting_squidward.png" width="200" />|<img src="cats/cat_sitting_tobi.png" width="200" />|
 |:--:|:--:|:--:|
-|[squidward](cats/cat_sitting_squidward.png)|[tobi](cats/cat_sitting_tobi.png)|[mask](cats/cat_sitting_tobi_mask.png)|
+|[smug](cats/cat_sitting_smug.png)|[squidward](cats/cat_sitting_squidward.png)|[tobi](cats/cat_sitting_tobi.png)|
 
-|<img src="cats/cat_sitting_uwu.png" width="200" />|
-|:--:|
-|[uwu](cats/cat_sitting_uwu.png)|
+|<img src="cats/cat_sitting_tobi_mask.png" width="200" />|<img src="cats/cat_sitting_uwu.png" width="200" />|
+|:--:|:--:|
+|[mask](cats/cat_sitting_tobi_mask.png)|[uwu](cats/cat_sitting_uwu.png)|
 
 
