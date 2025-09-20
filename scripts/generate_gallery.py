@@ -6,6 +6,7 @@ CATS_PER_ROW = 3
 IMAGE_FOLDER_NAME = "cats"
 IMAGE_FOLDER_PATH = Path(__file__).parent.parent.resolve() / IMAGE_FOLDER_NAME
 
+IMAGE_PREFIX = "cat_sitting_"
 PNG_EXTENSION = ".png"
 CENTER_JUSTIFICATION_ELEMENT = ":--:"
 
@@ -20,7 +21,8 @@ def get_image_html(filename: str) -> str:
     return f'<img src="{IMAGE_FOLDER_NAME}/{filename}" width="{IMAGE_SIZE}" />'
 
 def get_cat_name(filename: str) -> str:
-    return Path(filename).stem.split("_")[-1]
+    # This assumes that filename contains IMAGE_PREFIX, no check done for this
+    return Path(filename).stem[len(IMAGE_PREFIX):]
 
 def get_caption_markdown(filename: str) -> str:
     return f"[{get_cat_name(filename)}]({IMAGE_FOLDER_NAME}/{filename})"
