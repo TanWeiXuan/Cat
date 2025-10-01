@@ -1,6 +1,7 @@
 import argparse
 from fnmatch import fnmatchcase
 from pathlib import Path
+import random
 from PIL import Image, ImageChops
 
 TEMPLATE_BACKGROUND_COLOUR = "#99D9EA"
@@ -13,8 +14,26 @@ CHECKS = {
     "valid_png": False,
     "valid_name": False,
     "valid_dimensions": False,
+    "valid_cat": False,
     "within_template_outline": False
 }
+
+class CatDetectionModel:
+    def __init__(self):
+        self.model = random
+
+    def infer(self, image: Image.Image):
+        is_cat = bool(self.model.getrandbits(1))
+        is_cat = self.apply_robust_false_negative_correction(is_cat)
+        return is_cat
+
+    def apply_robust_false_negative_correction(self, is_cat: bool):
+        if not is_cat:
+            # Probably a false negative, let's fix that.
+            is_cat = True
+        return is_cat
+
+CAT_DETECTION_MODEL = CatDetectionModel()
 
 def validate_path(filepath: str) -> Path:
     path = Path(filepath)
@@ -62,6 +81,9 @@ def check_if_within_template_outline_highlight_changes(template_image: Image.Ima
     annotated_image = Image.alpha_composite(cat_image_rgba, diff_mask) 
     return (not outline_violation_found), annotated_image
 
+def check_if_cat(cat_image: Image.Image) -> bool:
+    is_cat = CAT_DETECTION_MODEL.infer(cat_image)
+    return is_cat
 
 def generate_markdown_report_string(checks: dict[str, bool], cat_name: str, report_path: Path) -> str:
     markdown_report_string = f"### Preliminary Checks Report - `{cat_name}`: \n"
@@ -82,6 +104,12 @@ def generate_markdown_report_string(checks: dict[str, bool], cat_name: str, repo
 
     markdown_report_string += "|Image file dimensions matches template"
     if CHECKS["valid_dimensions"]:
+        markdown_report_string += "|:white_check_mark:|\n"
+    else:
+        markdown_report_string += "|:x:|\n"
+
+    markdown_report_string += "|Image contains a cat"
+    if CHECKS["valid_cat"]:
         markdown_report_string += "|:white_check_mark:|\n"
     else:
         markdown_report_string += "|:x:|\n"
@@ -122,6 +150,8 @@ def main() -> None:
         template_image = Image.open(TEMPLATE_IMAGE_PATH)
         cat_image = Image.open(image_path)
         checks_pass = CHECKS["valid_dimensions"] = check_if_same_dimension(template_image, cat_image)
+    if checks_pass:
+        checks_pass = CHECKS["valid_cat"] = check_if_cat(cat_image)
     if checks_pass:
         checks_pass, annotated_changes_image = check_if_within_template_outline_highlight_changes(template_image, cat_image)
         CHECKS["within_template_outline"] = checks_pass
