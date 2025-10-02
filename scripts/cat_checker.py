@@ -69,7 +69,7 @@ def generate_markdown_report_string(checks: dict[str, bool], cat_name: str, repo
     markdown_report_string += "|:--------|:-----:|\n"
 
     markdown_report_string += "|Image file is a valid .png"
-    if CHECKS["valid_name"]:
+    if CHECKS["valid_png"]:
         markdown_report_string += "|:white_check_mark:|\n"
     else:
         markdown_report_string += "|:x:|\n"
