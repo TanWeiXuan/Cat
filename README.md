@@ -1,7 +1,7 @@
 # Cat.
 
 #### How to contribute:
-1. Create a copy of `cat_sitting_template.png` or `cat_standing_template.png`.
+1. Create a copy of `cat_sitting_template.png` or `cat_standing_template.png` in the `cat_templates`.
 2. Open the file in *Microsoft Paint*.
 3. Edit the image, following these guidelines:
    - Only use the `Brush` tool

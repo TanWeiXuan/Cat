@@ -5,7 +5,7 @@ from PIL import Image, ImageChops
 
 TEMPLATE_BACKGROUND_COLOUR = "#99D9EA"
 
-TEMPLATE_IMAGE_PATH = Path(__file__).parent.parent.resolve() / "cat_sitting_template.png"
+TEMPLATE_IMAGE_PATH = Path(__file__).parent.parent.resolve() / "cat_templates" / "cat_sitting_template.png"
 
 REPORT_OUTPUT_FOLDER_PATH = Path(__file__).parent.parent.resolve() / "reports"
 
