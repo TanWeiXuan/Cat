@@ -75,10 +75,54 @@ ___
 ___
 #### Standing Cat gallery.
 
-|<img src="cats_2/cat_standing_2.png" width="200" />|<img src="cats_2/cat_standing_3.png" width="200" />|<img src="cats_2/cat_standing_ditto1.png" width="200" />|
+|<img src="cats_2/cat_standing_10.png" width="200" />|<img src="cats_2/cat_standing_2.png" width="200" />|<img src="cats_2/cat_standing_2024NewYear.png" width="200" />|
 |:--:|:--:|:--:|
-|[2](cats_2/cat_standing_2.png)|[3](cats_2/cat_standing_3.png)|[ditto1](cats_2/cat_standing_ditto1.png)|
+|[10](cats_2/cat_standing_10.png)|[2](cats_2/cat_standing_2.png)|[2024NewYear](cats_2/cat_standing_2024NewYear.png)|
 
-|<img src="cats_2/cat_standing_mario.png" width="200" />|
-|:--:|
-|[mario](cats_2/cat_standing_mario.png)|
+|<img src="cats_2/cat_standing_3.png" width="200" />|<img src="cats_2/cat_standing_4.png" width="200" />|<img src="cats_2/cat_standing_5.png" width="200" />|
+|:--:|:--:|:--:|
+|[3](cats_2/cat_standing_3.png)|[4](cats_2/cat_standing_4.png)|[5](cats_2/cat_standing_5.png)|
+
+|<img src="cats_2/cat_standing_6.png" width="200" />|<img src="cats_2/cat_standing_7.png" width="200" />|<img src="cats_2/cat_standing_8.png" width="200" />|
+|:--:|:--:|:--:|
+|[6](cats_2/cat_standing_6.png)|[7](cats_2/cat_standing_7.png)|[8](cats_2/cat_standing_8.png)|
+
+|<img src="cats_2/cat_standing_9.png" width="200" />|<img src="cats_2/cat_standing_O_O.png" width="200" />|<img src="cats_2/cat_standing_^_^.png" width="200" />|
+|:--:|:--:|:--:|
+|[9](cats_2/cat_standing_9.png)|[O_O](cats_2/cat_standing_O_O.png)|[^_^](cats_2/cat_standing_^_^.png)|
+
+|<img src="cats_2/cat_standing_aang.png" width="200" />|<img src="cats_2/cat_standing_angry.png" width="200" />|<img src="cats_2/cat_standing_battlecat.png" width="200" />|
+|:--:|:--:|:--:|
+|[aang](cats_2/cat_standing_aang.png)|[angry](cats_2/cat_standing_angry.png)|[battlecat](cats_2/cat_standing_battlecat.png)|
+
+|<img src="cats_2/cat_standing_bulbasaur.png" width="200" />|<img src="cats_2/cat_standing_chiyo-chichi.png" width="200" />|<img src="cats_2/cat_standing_dino_ranger.png" width="200" />|
+|:--:|:--:|:--:|
+|[bulbasaur](cats_2/cat_standing_bulbasaur.png)|[chiyo-chichi](cats_2/cat_standing_chiyo-chichi.png)|[dino_ranger](cats_2/cat_standing_dino_ranger.png)|
+
+|<img src="cats_2/cat_standing_ditto1.png" width="200" />|<img src="cats_2/cat_standing_gojo.png" width="200" />|<img src="cats_2/cat_standing_hole.png" width="200" />|
+|:--:|:--:|:--:|
+|[ditto1](cats_2/cat_standing_ditto1.png)|[gojo](cats_2/cat_standing_gojo.png)|[hole](cats_2/cat_standing_hole.png)|
+
+|<img src="cats_2/cat_standing_kamineko.png" width="200" />|<img src="cats_2/cat_standing_man_face.png" width="200" />|<img src="cats_2/cat_standing_mario.png" width="200" />|
+|:--:|:--:|:--:|
+|[kamineko](cats_2/cat_standing_kamineko.png)|[man_face](cats_2/cat_standing_man_face.png)|[mario](cats_2/cat_standing_mario.png)|
+
+|<img src="cats_2/cat_standing_mimikyu.png" width="200" />|<img src="cats_2/cat_standing_notvampire.png" width="200" />|<img src="cats_2/cat_standing_oof.png" width="200" />|
+|:--:|:--:|:--:|
+|[mimikyu](cats_2/cat_standing_mimikyu.png)|[notvampire](cats_2/cat_standing_notvampire.png)|[oof](cats_2/cat_standing_oof.png)|
+
+|<img src="cats_2/cat_standing_patrick.png" width="200" />|<img src="cats_2/cat_standing_pepe.png" width="200" />|<img src="cats_2/cat_standing_round_glasses.png" width="200" />|
+|:--:|:--:|:--:|
+|[patrick](cats_2/cat_standing_patrick.png)|[pepe](cats_2/cat_standing_pepe.png)|[round_glasses](cats_2/cat_standing_round_glasses.png)|
+
+|<img src="cats_2/cat_standing_sad.png" width="200" />|<img src="cats_2/cat_standing_sharingan.png" width="200" />|<img src="cats_2/cat_standing_sideeye.png" width="200" />|
+|:--:|:--:|:--:|
+|[sad](cats_2/cat_standing_sad.png)|[sharingan](cats_2/cat_standing_sharingan.png)|[sideeye](cats_2/cat_standing_sideeye.png)|
+
+|<img src="cats_2/cat_standing_skull.png" width="200" />|<img src="cats_2/cat_standing_smug.png" width="200" />|<img src="cats_2/cat_standing_squidward.png" width="200" />|
+|:--:|:--:|:--:|
+|[skull](cats_2/cat_standing_skull.png)|[smug](cats_2/cat_standing_smug.png)|[squidward](cats_2/cat_standing_squidward.png)|
+
+|<img src="cats_2/cat_standing_tobi_mask.png" width="200" />|<img src="cats_2/cat_standing_uwu.png" width="200" />|
+|:--:|:--:|
+|[tobi_mask](cats_2/cat_standing_tobi_mask.png)|[uwu](cats_2/cat_standing_uwu.png)|
