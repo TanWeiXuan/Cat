@@ -13,6 +13,10 @@
 5. Raise a pull request with your newly drawn sitting/standing cat(s).
    - Sitting cats should be added to the `cats/` folder
    - Standing cats should be added to the `cats_2/` folder
+  
+#### Cat Web Editor (WIP)
+
+You can draw your own cat directly in your browser using the **[Web Editor](https://tanweixuan.github.io/Cat-pages/)**.
 
 #### Cat gallery.
 ___
