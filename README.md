@@ -18,6 +18,12 @@
 
 You can draw your own cat directly in your browser using the **[Web Editor](https://tanweixuan.github.io/Cat-pages/)**.
 
+#### Cat Telegram Stickers
+
+Submitted cats are also available as Telegram stickers!
+- **Sitting Cats**: [Add to Telegram](https://t.me/addstickers/Sitting_Cats_by_CatStickerMaker_bot)
+- **Standing Cats**: _(coming soon)_
+
 #### Cat gallery.
 ___
 #### Sitting Cat gallery.
