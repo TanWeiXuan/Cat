@@ -1,5 +1,4 @@
 import argparse
-from fnmatch import fnmatchcase
 from pathlib import Path
 from PIL import Image, ImageChops
 
@@ -13,12 +12,13 @@ PARAMS = {
     }
 }
 
-def validate_path(filepath: str) -> Path:
-    path = Path(filepath)
-    if not path.exists() and not path.is_file():
-        raise argparse.ArgumentTypeError(f"The path '{filepath}' is not a path to a file.")
-    return path
-
+def extract_cat_name(cat_image_path: Path, cat_image_prefix: str) -> str:
+    pattern = re.compile(fr"^{cat_image_prefix}_(.+)\.png$")
+    match = pattern.match(cat_image_path.name)
+    if not match:
+        raise ValueError(f"Invalid filename format: {cat_image_path.name}")
+    name = match.group(1)
+    return name
 
 def main() -> None:
     parser = argparse.ArgumentParser()
