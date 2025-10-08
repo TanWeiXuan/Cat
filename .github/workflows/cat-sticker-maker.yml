@@ -1,0 +1,30 @@
+name: Make Cat Stickers
+
+on:
+  workflow_dispatch:
+    inputs:
+      branch_name:
+        description: 'Branch to run the workflow on'
+        required: true
+        default: 'main'
+
+permissions: write-all
+
+jobs:
+  run-script:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          ref: ${{ github.event.inputs.branch_name }}
+  
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.13'
+
+      - run: pip install python-telegram-bot --upgrade
+
+      - run: python scripts/generate_gallery.py
+      
