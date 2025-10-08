@@ -30,4 +30,4 @@ jobs:
           pip install python-telegram-bot --upgrade
 
       - run: python scripts/cat_telegram_sticker_maker.py ${{ secrets.CAT_STICKER_MAKER_BOT_TOKEN }} ${{ secrets.TELEGRAM_USER_ID }}
-      
+     
