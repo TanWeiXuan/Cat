@@ -23,8 +23,11 @@ jobs:
       - uses: actions/setup-python@v6
         with:
           python-version: '3.13'
+    
+      - name: Install dependencies
+        run: |
+          pip install pillow
+          pip install python-telegram-bot --upgrade
 
-      - run: pip install python-telegram-bot --upgrade
-
-      - run: python scripts/generate_gallery.py
-      
+      - run: python scripts/cat_telegram_sticker_maker.py ${{ secrets.CAT_STICKER_MAKER_BOT_TOKEN }} ${{ secrets.TELEGRAM_USER_ID }}
+     
