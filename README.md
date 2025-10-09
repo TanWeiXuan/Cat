@@ -22,7 +22,7 @@ You can draw your own cat directly in your browser using the **[Web Editor](http
 
 Submitted cats are also available as Telegram stickers!
 - **Sitting Cats**: [Add to Telegram](https://t.me/addstickers/Sitting_Cats_by_CatStickerMaker_bot)
-- **Standing Cats**: _(coming soon)_
+- **Standing Cats**: [Add to Telegram](https://t.me/addstickers/Standing_Cats_by_CatStickerMaker_bot)
 
 #### Cat gallery.
 ___

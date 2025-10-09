@@ -15,6 +15,11 @@ PARAMS = {
         "folder_str": "cats",
         "roi": [445, 115, 1750, 1420], # left, upper, right, lower
         "stickerset_prefix": "Sitting Cats"
+    },
+    "cat_standing": {
+        "folder_str": "cats_2",
+        "roi": [540, 115, 1705, 1280], # left, upper, right, lower
+        "stickerset_prefix": "Standing Cats"
     }
 }
 
