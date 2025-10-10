@@ -55,13 +55,17 @@ ___
 |:--:|:--:|:--:|
 |[batman](cats/cat_sitting_batman.png)|[battlecat](cats/cat_sitting_battlecat.png)|[bulbasaur](cats/cat_sitting_bulbasaur.png)|
 
-|<img src="cats/cat_sitting_chiyo-chichi.png" width="200" />|<img src="cats/cat_sitting_dino_ranger.png" width="200" />|<img src="cats/cat_sitting_ditto1.png" width="200" />|
+|<img src="cats/cat_sitting_chiyo-chichi.png" width="200" />|<img src="cats/cat_sitting_creeper.png" width="200" />|<img src="cats/cat_sitting_dino_ranger.png" width="200" />|
 |:--:|:--:|:--:|
-|[chiyo-chichi](cats/cat_sitting_chiyo-chichi.png)|[dino_ranger](cats/cat_sitting_dino_ranger.png)|[ditto1](cats/cat_sitting_ditto1.png)|
+|[chiyo-chichi](cats/cat_sitting_chiyo-chichi.png)|[creeper](cats/cat_sitting_creeper.png)|[dino_ranger](cats/cat_sitting_dino_ranger.png)|
 
-|<img src="cats/cat_sitting_doraemon.png" width="200" />|<img src="cats/cat_sitting_gojo.png" width="200" />|<img src="cats/cat_sitting_harry_potter.png" width="200" />|
+|<img src="cats/cat_sitting_disturbed.png" width="200" />|<img src="cats/cat_sitting_ditto1.png" width="200" />|<img src="cats/cat_sitting_doraemon.png" width="200" />|
 |:--:|:--:|:--:|
-|[doraemon](cats/cat_sitting_doraemon.png)|[gojo](cats/cat_sitting_gojo.png)|[harry_potter](cats/cat_sitting_harry_potter.png)|
+|[disturbed](cats/cat_sitting_disturbed.png)|[ditto1](cats/cat_sitting_ditto1.png)|[doraemon](cats/cat_sitting_doraemon.png)|
+
+|<img src="cats/cat_sitting_duck.png" width="200" />|<img src="cats/cat_sitting_gojo.png" width="200" />|<img src="cats/cat_sitting_harry_potter.png" width="200" />|
+|:--:|:--:|:--:|
+|[duck](cats/cat_sitting_duck.png)|[gojo](cats/cat_sitting_gojo.png)|[harry_potter](cats/cat_sitting_harry_potter.png)|
 
 |<img src="cats/cat_sitting_hole.png" width="200" />|<img src="cats/cat_sitting_kamineko.png" width="200" />|<img src="cats/cat_sitting_man_face.png" width="200" />|
 |:--:|:--:|:--:|
@@ -87,9 +91,9 @@ ___
 |:--:|:--:|:--:|
 |[smug](cats/cat_sitting_smug.png)|[squidward](cats/cat_sitting_squidward.png)|[tobi](cats/cat_sitting_tobi.png)|
 
-|<img src="cats/cat_sitting_tobi_mask.png" width="200" />|<img src="cats/cat_sitting_uwu.png" width="200" />|
-|:--:|:--:|
-|[tobi_mask](cats/cat_sitting_tobi_mask.png)|[uwu](cats/cat_sitting_uwu.png)|
+|<img src="cats/cat_sitting_tobi_mask.png" width="200" />|<img src="cats/cat_sitting_unamused.png" width="200" />|<img src="cats/cat_sitting_uwu.png" width="200" />|
+|:--:|:--:|:--:|
+|[tobi_mask](cats/cat_sitting_tobi_mask.png)|[unamused](cats/cat_sitting_unamused.png)|[uwu](cats/cat_sitting_uwu.png)|
 ___
 #### Standing Cat gallery.
 
