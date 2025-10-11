@@ -9,6 +9,7 @@ from telegram import Bot, InputFile, InputSticker
 from telegram.error import TelegramError
 
 BACKGROUND_COLOUR = "#99D9EA"
+MAX_CONCURRENT_REQUESTS = 5
 
 PARAMS = {
     "cat_sitting": {
@@ -31,7 +32,7 @@ def extract_cat_name(cat_image_path: Path, cat_image_prefix: str) -> str:
     name = match.group(1)
     return name
 
-def prepare_sticker(cat_image_path: Path, roi: list[int], cat_image_prefix: str) -> InputSticker:
+def prepare_sticker_sync(cat_image_path: Path, roi: list[int], cat_image_prefix: str) -> InputSticker:
     cat_image = Image.open(cat_image_path).convert("RGBA")
     if roi != [0, 0, 0, 0]:
         cat_image = cat_image.crop(roi)
@@ -39,17 +40,11 @@ def prepare_sticker(cat_image_path: Path, roi: list[int], cat_image_prefix: str)
     # replace background with transparent
     bg_color = tuple(int(BACKGROUND_COLOUR[i:i+2], 16) for i in (1, 3, 5)) + (255,)
     datas = cat_image.getdata()
-    new_data = []
-    for item in datas:
-        if item[0:3] == bg_color[0:3]:
-            new_data.append((255, 255, 255, 0)) # Transparent
-        else:
-            new_data.append(item)
+    new_data = [(255, 255, 255, 0) if item[:3] == bg_color[:3] else item for item in datas]
     cat_image.putdata(new_data)
 
     # Resize to fit within 512x512 while maintaining aspect ratio
-    max_size = 512
-    cat_image.thumbnail((max_size, max_size), Image.Resampling.LANCZOS)
+    cat_image.thumbnail((512, 512), Image.Resampling.LANCZOS)
 
     cat_image_buffer = io.BytesIO()
     cat_image.save(cat_image_buffer, format="PNG")
@@ -64,84 +59,92 @@ def prepare_sticker(cat_image_path: Path, roi: list[int], cat_image_prefix: str)
 
     return cat_sticker
 
+async def prepare_sticker(cat_image_path: Path, roi: list[int], cat_image_prefix: str) -> InputSticker:
+    """Run prepare_sticker() in a thread pool."""
+    return await asyncio.to_thread(prepare_sticker_sync, cat_image_path, roi, cat_image_prefix)
+
+
+async def delete_sticker(bot: Bot, sticker_file_id: str, semaphore: asyncio.Semaphore, index: int, total: int):
+    async with semaphore:
+        print(f"Deleting [{index}/{total}] stickers...")
+        await bot.delete_sticker_from_set(sticker_file_id)
+        await asyncio.sleep(0.5)  # To avoid hitting rate limits
+
+
+async def add_sticker(bot: Bot, user_id: int, sticker_set_name: str, cat_image_path: Path, roi: list[int], cat_image_prefix: str, semaphore: asyncio.Semaphore):
+    async with semaphore:
+        try:
+            cat_sticker = await prepare_sticker(cat_image_path, roi, cat_image_prefix)
+            await bot.add_sticker_to_set(
+                user_id=user_id,
+                name=sticker_set_name,
+                sticker=cat_sticker
+            )
+            print(f"Added sticker '{extract_cat_name(cat_image_path, cat_image_prefix)}'.")
+            await asyncio.sleep(0.5)  # To avoid hitting rate limits
+        except TelegramError as e:
+            print(f"Error adding '{cat_image_path.name}': {e}")
+
+
+async def process_sticker_set(bot: Bot, user_id: int, cat_image_prefix: str, param: dict):
+    cat_folder_path = Path(__file__).parent.parent.resolve() / param["folder_str"]
+    roi = param["roi"]
+    stickerset_prefix = param["stickerset_prefix"]
+
+    cat_image_paths = sorted(cat_folder_path.glob(f"{cat_image_prefix}_*.png"))
+    bot_me = await bot.get_me()
+    sticker_set_name = f"{stickerset_prefix.replace(' ', '_')}_by_{bot_me.username}"
+    sticker_set_title = stickerset_prefix
+
+    print(f"Checking if sticker set '{sticker_set_name}' exists...")
+    try:
+        sticker_set = await bot.get_sticker_set(sticker_set_name)
+        print(f"Sticker set '{sticker_set_name}' already exists.")
+    except TelegramError as e:
+        if "Stickerset_invalid" in str(e):
+            print(f"Creating new sticker set '{sticker_set_name}'...")
+            first_sticker = await prepare_sticker(cat_image_paths[0], roi, cat_image_prefix)
+            await bot.create_new_sticker_set(
+                user_id=user_id,
+                name=sticker_set_name,
+                title=sticker_set_title,
+                stickers=[first_sticker]
+            )
+            sticker_set = await bot.get_sticker_set(sticker_set_name)
+        else:
+            print(f"Error checking/creating sticker set: {e}")
+            return
+
+    print(f"Clearing existing stickers in '{sticker_set_name}'...")
+    semaphore = asyncio.Semaphore(MAX_CONCURRENT_REQUESTS)
+    delete_tasks = [
+        delete_sticker(bot, sticker.file_id, semaphore, i + 1, len(sticker_set.stickers))
+        for i, sticker in enumerate(sticker_set.stickers)
+    ]
+    await asyncio.gather(*delete_tasks)
+    print(f"Cleared existing stickers in '{sticker_set_name}'.")
+
+    print(f"Adding stickers to '{sticker_set_name}'...")
+    add_tasks = [
+        add_sticker(bot, user_id, sticker_set_name, path, roi, cat_image_prefix, semaphore)
+        for path in cat_image_paths
+    ]
+    await asyncio.gather(*add_tasks)
+    print(f"Finished adding stickers to '{sticker_set_name}'.")
+
+
 async def main() -> None:
     parser = argparse.ArgumentParser()
-    parser.add_argument(
-        "bot_token",
-        type=str,
-        help="Telegram bot token"
-    )
-
-    parser.add_argument(
-        "user_id",
-        type=str,
-        help="Telegram user ID"
-    )
-
+    parser.add_argument("bot_token", type=str)
+    parser.add_argument("user_id", type=int)
     args = parser.parse_args()
 
-    print(f"Converting cats to Telegram stickers.")
+    print(f"Converting cats to Telegram stickers...")
 
+    bot = Bot(token=args.bot_token)
     for cat_image_prefix, param in PARAMS.items():
-        cat_folder_path = Path(__file__).parent.parent.resolve() / param["folder_str"]
-        roi = param["roi"]
-        stickerset_prefix = param["stickerset_prefix"]
+        await process_sticker_set(bot, args.user_id, cat_image_prefix, param)
 
-        cat_image_paths = list(cat_folder_path.glob(f"{cat_image_prefix}_*.png"))
-        cat_image_paths.sort()
-
-        bot = Bot(token=args.bot_token)
-        bot_me = await bot.get_me()
-        sticker_set_name = f"{stickerset_prefix.replace(' ', '_')}_by_{bot_me.username}"
-        sticker_set_title = f"{stickerset_prefix}"
-
-        # Check if sticker set exists, if not create it
-        print(f"Checking if sticker set '{sticker_set_name}' exists...")
-        try:
-            sticker_set = await bot.get_sticker_set(sticker_set_name)
-            print(f"Sticker set '{sticker_set_name}' already exists.")
-
-        except TelegramError as e:
-            if "Stickerset_invalid" in str(e):
-                print(f"Sticker set does not exist, creating sticker set '{sticker_set_name}'...")
-
-                # Placeholder to create the sticker set
-                cat_sticker = prepare_sticker(cat_image_paths[0], roi, cat_image_prefix)
-
-                await bot.create_new_sticker_set(
-                    user_id=int(args.user_id),
-                    name=sticker_set_name,
-                    title=sticker_set_title,
-                    stickers=[cat_sticker]
-                )
-                print(f"Sticker set '{sticker_set_name}' created.")
-            else:
-                print(f"Error checking/creating sticker set: {e}")
-                continue
-        
-        # Not sure what's a good way to check existing stickers in the set
-        # So just delete all stickers and re-add them
-        print(f"Clearing existing stickers in sticker set '{sticker_set_name}'...")
-        sticker_set = await bot.get_sticker_set(sticker_set_name)
-        for cnt, sticker in enumerate(sticker_set.stickers, start=1):
-            print(f"Deleting [{cnt}/{len(sticker_set.stickers)}] stickers.")
-            await bot.delete_sticker_from_set(sticker.file_id)
-        print(f"Cleared existing stickers in sticker set '{sticker_set_name}'.")
-
-        print(f"Adding stickers to sticker set '{sticker_set_name}'...")
-        for cat_image_path in cat_image_paths:
-            try:
-                cat_sticker = prepare_sticker(cat_image_path, roi, cat_image_prefix)
-                await bot.add_sticker_to_set(
-                    user_id=int(args.user_id),
-                    name=sticker_set_name,
-                    sticker=cat_sticker
-                )
-                print(f"Added sticker '{extract_cat_name(cat_image_path, cat_image_prefix)}'.")
-            except TelegramError as e:
-                print(f"Error adding sticker '{extract_cat_name(cat_image_path, cat_image_prefix)}': {e}")
-                continue
-        print(f"Finish adding stickers to sticker set '{sticker_set_name}'.")
 
 if __name__ == "__main__":
     asyncio.run(main())
