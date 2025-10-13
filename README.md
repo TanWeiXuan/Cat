@@ -27,17 +27,17 @@ Submitted cats are also available as Telegram stickers!
 #### Cat gallery.
 ___
 #### Sitting Cat gallery.
-|<img src="cats/cat_sitting_10.png" width="200" />|<img src="cats/cat_sitting_11.png" width="200" />|<img src="cats/cat_sitting_12.png" width="200" />|
+|<img src="cats/cat_sitting_0.png" width="200" />|<img src="cats/cat_sitting_10.png" width="200" />|<img src="cats/cat_sitting_11.png" width="200" />|
 |:--:|:--:|:--:|
-|[10](cats/cat_sitting_10.png)|[11](cats/cat_sitting_11.png)|[12](cats/cat_sitting_12.png)|
+|[0](cats/cat_sitting_0.png)|[10](cats/cat_sitting_10.png)|[11](cats/cat_sitting_11.png)|
 
-|<img src="cats/cat_sitting_13.png" width="200" />|<img src="cats/cat_sitting_2.png" width="200" />|<img src="cats/cat_sitting_2024NewYear.png" width="200" />|
+|<img src="cats/cat_sitting_12.png" width="200" />|<img src="cats/cat_sitting_13.png" width="200" />|<img src="cats/cat_sitting_2.png" width="200" />|
 |:--:|:--:|:--:|
-|[13](cats/cat_sitting_13.png)|[2](cats/cat_sitting_2.png)|[2024NewYear](cats/cat_sitting_2024NewYear.png)|
+|[12](cats/cat_sitting_12.png)|[13](cats/cat_sitting_13.png)|[2](cats/cat_sitting_2.png)|
 
-|<img src="cats/cat_sitting_3.png" width="200" />|<img src="cats/cat_sitting_4.png" width="200" />|<img src="cats/cat_sitting_5.png" width="200" />|
+|<img src="cats/cat_sitting_2024NewYear.png" width="200" />|<img src="cats/cat_sitting_4.png" width="200" />|<img src="cats/cat_sitting_5.png" width="200" />|
 |:--:|:--:|:--:|
-|[3](cats/cat_sitting_3.png)|[4](cats/cat_sitting_4.png)|[5](cats/cat_sitting_5.png)|
+|[2024NewYear](cats/cat_sitting_2024NewYear.png)|[4](cats/cat_sitting_4.png)|[5](cats/cat_sitting_5.png)|
 
 |<img src="cats/cat_sitting_6.png" width="200" />|<img src="cats/cat_sitting_7.png" width="200" />|<img src="cats/cat_sitting_8.png" width="200" />|
 |:--:|:--:|:--:|
@@ -71,51 +71,55 @@ ___
 |:--:|:--:|:--:|
 |[domo](cats/cat_sitting_domo.png)|[doraemon](cats/cat_sitting_doraemon.png)|[duck](cats/cat_sitting_duck.png)|
 
-|<img src="cats/cat_sitting_eyeroll.png" width="200" />|<img src="cats/cat_sitting_gengar.png" width="200" />|<img src="cats/cat_sitting_gojo.png" width="200" />|
+|<img src="cats/cat_sitting_eyeroll.png" width="200" />|<img src="cats/cat_sitting_gengar.png" width="200" />|<img src="cats/cat_sitting_glasses.png" width="200" />|
 |:--:|:--:|:--:|
-|[eyeroll](cats/cat_sitting_eyeroll.png)|[gengar](cats/cat_sitting_gengar.png)|[gojo](cats/cat_sitting_gojo.png)|
+|[eyeroll](cats/cat_sitting_eyeroll.png)|[gengar](cats/cat_sitting_gengar.png)|[glasses](cats/cat_sitting_glasses.png)|
 
-|<img src="cats/cat_sitting_harry_potter.png" width="200" />|<img src="cats/cat_sitting_hole.png" width="200" />|<img src="cats/cat_sitting_kamineko.png" width="200" />|
+|<img src="cats/cat_sitting_gojo.png" width="200" />|<img src="cats/cat_sitting_harry_potter.png" width="200" />|<img src="cats/cat_sitting_hole.png" width="200" />|
 |:--:|:--:|:--:|
-|[harry_potter](cats/cat_sitting_harry_potter.png)|[hole](cats/cat_sitting_hole.png)|[kamineko](cats/cat_sitting_kamineko.png)|
+|[gojo](cats/cat_sitting_gojo.png)|[harry_potter](cats/cat_sitting_harry_potter.png)|[hole](cats/cat_sitting_hole.png)|
 
-|<img src="cats/cat_sitting_man_face.png" width="200" />|<img src="cats/cat_sitting_mario.png" width="200" />|<img src="cats/cat_sitting_mimikyu.png" width="200" />|
+|<img src="cats/cat_sitting_kamineko.png" width="200" />|<img src="cats/cat_sitting_man_face.png" width="200" />|<img src="cats/cat_sitting_mario.png" width="200" />|
 |:--:|:--:|:--:|
-|[man_face](cats/cat_sitting_man_face.png)|[mario](cats/cat_sitting_mario.png)|[mimikyu](cats/cat_sitting_mimikyu.png)|
+|[kamineko](cats/cat_sitting_kamineko.png)|[man_face](cats/cat_sitting_man_face.png)|[mario](cats/cat_sitting_mario.png)|
 
-|<img src="cats/cat_sitting_notvampire.png" width="200" />|<img src="cats/cat_sitting_oof.png" width="200" />|<img src="cats/cat_sitting_patrick.png" width="200" />|
+|<img src="cats/cat_sitting_mimikyu.png" width="200" />|<img src="cats/cat_sitting_notvampire.png" width="200" />|<img src="cats/cat_sitting_oof.png" width="200" />|
 |:--:|:--:|:--:|
-|[notvampire](cats/cat_sitting_notvampire.png)|[oof](cats/cat_sitting_oof.png)|[patrick](cats/cat_sitting_patrick.png)|
+|[mimikyu](cats/cat_sitting_mimikyu.png)|[notvampire](cats/cat_sitting_notvampire.png)|[oof](cats/cat_sitting_oof.png)|
 
-|<img src="cats/cat_sitting_pepe.png" width="200" />|<img src="cats/cat_sitting_round_glasses.png" width="200" />|<img src="cats/cat_sitting_sad.png" width="200" />|
+|<img src="cats/cat_sitting_patrick.png" width="200" />|<img src="cats/cat_sitting_pepe.png" width="200" />|<img src="cats/cat_sitting_round_glasses.png" width="200" />|
 |:--:|:--:|:--:|
-|[pepe](cats/cat_sitting_pepe.png)|[round_glasses](cats/cat_sitting_round_glasses.png)|[sad](cats/cat_sitting_sad.png)|
+|[patrick](cats/cat_sitting_patrick.png)|[pepe](cats/cat_sitting_pepe.png)|[round_glasses](cats/cat_sitting_round_glasses.png)|
 
-|<img src="cats/cat_sitting_sharingan.png" width="200" />|<img src="cats/cat_sitting_sick.png" width="200" />|<img src="cats/cat_sitting_sideeye.png" width="200" />|
+|<img src="cats/cat_sitting_sad.png" width="200" />|<img src="cats/cat_sitting_sharingan.png" width="200" />|<img src="cats/cat_sitting_sick.png" width="200" />|
 |:--:|:--:|:--:|
-|[sharingan](cats/cat_sitting_sharingan.png)|[sick](cats/cat_sitting_sick.png)|[sideeye](cats/cat_sitting_sideeye.png)|
+|[sad](cats/cat_sitting_sad.png)|[sharingan](cats/cat_sitting_sharingan.png)|[sick](cats/cat_sitting_sick.png)|
 
-|<img src="cats/cat_sitting_skull.png" width="200" />|<img src="cats/cat_sitting_smug.png" width="200" />|<img src="cats/cat_sitting_son_of_cat.png" width="200" />|
+|<img src="cats/cat_sitting_sideeye.png" width="200" />|<img src="cats/cat_sitting_skull.png" width="200" />|<img src="cats/cat_sitting_smug.png" width="200" />|
 |:--:|:--:|:--:|
-|[skull](cats/cat_sitting_skull.png)|[smug](cats/cat_sitting_smug.png)|[son_of_cat](cats/cat_sitting_son_of_cat.png)|
+|[sideeye](cats/cat_sitting_sideeye.png)|[skull](cats/cat_sitting_skull.png)|[smug](cats/cat_sitting_smug.png)|
 
-|<img src="cats/cat_sitting_squidward.png" width="200" />|<img src="cats/cat_sitting_tobi.png" width="200" />|<img src="cats/cat_sitting_tobi_mask.png" width="200" />|
+|<img src="cats/cat_sitting_son_of_cat.png" width="200" />|<img src="cats/cat_sitting_squidward.png" width="200" />|<img src="cats/cat_sitting_tobi.png" width="200" />|
 |:--:|:--:|:--:|
-|[squidward](cats/cat_sitting_squidward.png)|[tobi](cats/cat_sitting_tobi.png)|[tobi_mask](cats/cat_sitting_tobi_mask.png)|
+|[son_of_cat](cats/cat_sitting_son_of_cat.png)|[squidward](cats/cat_sitting_squidward.png)|[tobi](cats/cat_sitting_tobi.png)|
 
-|<img src="cats/cat_sitting_unamused.png" width="200" />|<img src="cats/cat_sitting_uwu.png" width="200" />|<img src="cats/cat_sitting_vampire.png" width="200" />|
+|<img src="cats/cat_sitting_tobi_mask.png" width="200" />|<img src="cats/cat_sitting_unamused.png" width="200" />|<img src="cats/cat_sitting_uwu.png" width="200" />|
 |:--:|:--:|:--:|
-|[unamused](cats/cat_sitting_unamused.png)|[uwu](cats/cat_sitting_uwu.png)|[vampire](cats/cat_sitting_vampire.png)|
+|[tobi_mask](cats/cat_sitting_tobi_mask.png)|[unamused](cats/cat_sitting_unamused.png)|[uwu](cats/cat_sitting_uwu.png)|
+
+|<img src="cats/cat_sitting_vampire.png" width="200" />|
+|:--:|
+|[vampire](cats/cat_sitting_vampire.png)|
 ___
 #### Standing Cat gallery.
 
-|<img src="cats_2/cat_standing_10.png" width="200" />|<img src="cats_2/cat_standing_11.png" width="200" />|<img src="cats_2/cat_standing_13.png" width="200" />|
+|<img src="cats_2/cat_standing_0.png" width="200" />|<img src="cats_2/cat_standing_10.png" width="200" />|<img src="cats_2/cat_standing_11.png" width="200" />|
 |:--:|:--:|:--:|
-|[10](cats_2/cat_standing_10.png)|[11](cats_2/cat_standing_11.png)|[13](cats_2/cat_standing_13.png)|
+|[0](cats_2/cat_standing_0.png)|[10](cats_2/cat_standing_10.png)|[11](cats_2/cat_standing_11.png)|
 
-|<img src="cats_2/cat_standing_2.png" width="200" />|<img src="cats_2/cat_standing_2024NewYear.png" width="200" />|<img src="cats_2/cat_standing_3.png" width="200" />|
+|<img src="cats_2/cat_standing_13.png" width="200" />|<img src="cats_2/cat_standing_2.png" width="200" />|<img src="cats_2/cat_standing_2024NewYear.png" width="200" />|
 |:--:|:--:|:--:|
-|[2](cats_2/cat_standing_2.png)|[2024NewYear](cats_2/cat_standing_2024NewYear.png)|[3](cats_2/cat_standing_3.png)|
+|[13](cats_2/cat_standing_13.png)|[2](cats_2/cat_standing_2.png)|[2024NewYear](cats_2/cat_standing_2024NewYear.png)|
 
 |<img src="cats_2/cat_standing_4.png" width="200" />|<img src="cats_2/cat_standing_5.png" width="200" />|<img src="cats_2/cat_standing_6.png" width="200" />|
 |:--:|:--:|:--:|
