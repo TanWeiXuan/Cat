@@ -71,29 +71,33 @@ ___
 |:--:|:--:|:--:|
 |[domo](cats/cat_sitting_domo.png)|[doraemon](cats/cat_sitting_doraemon.png)|[duck](cats/cat_sitting_duck.png)|
 
-|<img src="cats/cat_sitting_eyeroll.png" width="200" />|<img src="cats/cat_sitting_gengar.png" width="200" />|<img src="cats/cat_sitting_glasses.png" width="200" />|
+|<img src="cats/cat_sitting_eyepatch.png" width="200" />|<img src="cats/cat_sitting_eyeroll.png" width="200" />|<img src="cats/cat_sitting_gengar.png" width="200" />|
 |:--:|:--:|:--:|
-|[eyeroll](cats/cat_sitting_eyeroll.png)|[gengar](cats/cat_sitting_gengar.png)|[glasses](cats/cat_sitting_glasses.png)|
+|[eyepatch](cats/cat_sitting_eyepatch.png)|[eyeroll](cats/cat_sitting_eyeroll.png)|[gengar](cats/cat_sitting_gengar.png)|
 
-|<img src="cats/cat_sitting_gojo.png" width="200" />|<img src="cats/cat_sitting_harry_potter.png" width="200" />|<img src="cats/cat_sitting_hole.png" width="200" />|
+|<img src="cats/cat_sitting_glasses.png" width="200" />|<img src="cats/cat_sitting_gojo.png" width="200" />|<img src="cats/cat_sitting_harry_potter.png" width="200" />|
 |:--:|:--:|:--:|
-|[gojo](cats/cat_sitting_gojo.png)|[harry_potter](cats/cat_sitting_harry_potter.png)|[hole](cats/cat_sitting_hole.png)|
+|[glasses](cats/cat_sitting_glasses.png)|[gojo](cats/cat_sitting_gojo.png)|[harry_potter](cats/cat_sitting_harry_potter.png)|
 
-|<img src="cats/cat_sitting_kamineko.png" width="200" />|<img src="cats/cat_sitting_kitty_white.png" width="200" />|<img src="cats/cat_sitting_kuromi.png" width="200" />|
+|<img src="cats/cat_sitting_hole.png" width="200" />|<img src="cats/cat_sitting_jake-the-cat.png" width="200" />|<img src="cats/cat_sitting_kamineko.png" width="200" />|
 |:--:|:--:|:--:|
-|[kamineko](cats/cat_sitting_kamineko.png)|[kitty_white](cats/cat_sitting_kitty_white.png)|[kuromi](cats/cat_sitting_kuromi.png)|
+|[hole](cats/cat_sitting_hole.png)|[jake-the-cat](cats/cat_sitting_jake-the-cat.png)|[kamineko](cats/cat_sitting_kamineko.png)|
 
-|<img src="cats/cat_sitting_man_face.png" width="200" />|<img src="cats/cat_sitting_mario.png" width="200" />|<img src="cats/cat_sitting_mimikyu.png" width="200" />|
+|<img src="cats/cat_sitting_kitty_white.png" width="200" />|<img src="cats/cat_sitting_kuromi.png" width="200" />|<img src="cats/cat_sitting_man_face.png" width="200" />|
 |:--:|:--:|:--:|
-|[man_face](cats/cat_sitting_man_face.png)|[mario](cats/cat_sitting_mario.png)|[mimikyu](cats/cat_sitting_mimikyu.png)|
+|[kitty_white](cats/cat_sitting_kitty_white.png)|[kuromi](cats/cat_sitting_kuromi.png)|[man_face](cats/cat_sitting_man_face.png)|
 
-|<img src="cats/cat_sitting_move-in_martin.png" width="200" />|<img src="cats/cat_sitting_notvampire.png" width="200" />|<img src="cats/cat_sitting_oof.png" width="200" />|
+|<img src="cats/cat_sitting_mario.png" width="200" />|<img src="cats/cat_sitting_mimikyu.png" width="200" />|<img src="cats/cat_sitting_move-in_martin.png" width="200" />|
 |:--:|:--:|:--:|
-|[move-in_martin](cats/cat_sitting_move-in_martin.png)|[notvampire](cats/cat_sitting_notvampire.png)|[oof](cats/cat_sitting_oof.png)|
+|[mario](cats/cat_sitting_mario.png)|[mimikyu](cats/cat_sitting_mimikyu.png)|[move-in_martin](cats/cat_sitting_move-in_martin.png)|
 
-|<img src="cats/cat_sitting_patrick.png" width="200" />|<img src="cats/cat_sitting_pepe.png" width="200" />|<img src="cats/cat_sitting_round_glasses.png" width="200" />|
+|<img src="cats/cat_sitting_notvampire.png" width="200" />|<img src="cats/cat_sitting_oof.png" width="200" />|<img src="cats/cat_sitting_patrick.png" width="200" />|
 |:--:|:--:|:--:|
-|[patrick](cats/cat_sitting_patrick.png)|[pepe](cats/cat_sitting_pepe.png)|[round_glasses](cats/cat_sitting_round_glasses.png)|
+|[notvampire](cats/cat_sitting_notvampire.png)|[oof](cats/cat_sitting_oof.png)|[patrick](cats/cat_sitting_patrick.png)|
+
+|<img src="cats/cat_sitting_pepe.png" width="200" />|<img src="cats/cat_sitting_plankton.png" width="200" />|<img src="cats/cat_sitting_round_glasses.png" width="200" />|
+|:--:|:--:|:--:|
+|[pepe](cats/cat_sitting_pepe.png)|[plankton](cats/cat_sitting_plankton.png)|[round_glasses](cats/cat_sitting_round_glasses.png)|
 
 |<img src="cats/cat_sitting_sad.png" width="200" />|<img src="cats/cat_sitting_sharingan.png" width="200" />|<img src="cats/cat_sitting_sick.png" width="200" />|
 |:--:|:--:|:--:|
