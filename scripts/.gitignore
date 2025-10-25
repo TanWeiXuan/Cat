@@ -1,0 +1,6 @@
+# Python bytecode files
+*.pyc
+*.pyo
+
+# __pycache__ directory
+__pycache__/*
