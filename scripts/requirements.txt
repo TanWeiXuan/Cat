@@ -1,0 +1,4 @@
+# TODO: Clean up requirements.txt
+numpy==2.3.4
+Pillow==12.0.0
+python-telegram-bot==22.5
