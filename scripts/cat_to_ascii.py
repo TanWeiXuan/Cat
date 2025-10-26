@@ -1,9 +1,10 @@
 import argparse
 import re
 import sys
+import cv2
 import numpy as np
 from pathlib import Path
-from PIL import Image, ImageOps
+from PIL import Image, ImageOps, ImageDraw, ImageFont
 
 import cat_telegram_sticker_maker as ctsm
 
@@ -74,6 +75,57 @@ def extract_cat_type_and_name(cat_image_filename: str) -> list[str]:
         return [None, None]
     cat_type, name = match.groups()
     return [cat_type, name]
+
+def video_to_frames(video_path: Path) -> list[int, list[Image.Image]]:
+    frames = []
+    cap = cv2.VideoCapture(str(video_path))
+    fps = cap.get(cv2.CAP_PROP_FPS)
+    print(f"Converting video {video_path} to frames...")
+    while True:
+        ret, frame = cap.read()
+        if not ret:
+            break
+        frame_rgb = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
+        pil_image = Image.fromarray(frame_rgb)
+        frames.append(pil_image)
+    cap.release()
+    return int(fps), frames
+
+def ascii_to_image(ascii_art: str) -> Image.Image:
+    font_path = Path(__file__).parent.resolve() / "misc" / "consolas" / "consolas.ttf"
+    font_size = 12
+    font = ImageFont.truetype(str(font_path), font_size)
+
+    # Compute image dimensions based on longest line and line count
+    lines = ascii_art.splitlines()
+    line_count = len(lines)
+    _, _, img_width, _ = font.getbbox(lines[0], anchor="lt")  # assume monospaced font
+    img_height = font_size * line_count
+    img = Image.new("RGB", (img_width, img_height), color="black")
+
+    draw = ImageDraw.Draw(img)
+    y = 0
+    for line in lines:
+        draw.text((0, y), line, fill="white", font=font)
+        y += font_size
+
+    return img
+
+def frames_to_video(frames: list[Image.Image], output_path: Path, fps: int) -> None:
+    if len(frames) == 0:
+        print("No frames to convert to video.")
+        return
+
+    frame_width, frame_height = frames[0].size
+    fourcc = cv2.VideoWriter_fourcc(*'mp4v')
+    video_writer = cv2.VideoWriter(str(output_path), fourcc, fps, (frame_width, frame_height))
+
+    for frame in frames:
+        frame_bgr = cv2.cvtColor(np.array(frame), cv2.COLOR_RGB2BGR)
+        video_writer.write(frame_bgr)
+
+    video_writer.release()
+    print(f"Video saved to {output_path}")
 
 def main() -> None:
     parser = argparse.ArgumentParser(description="Convert cat images to ASCII art.")
