@@ -1,4 +1,5 @@
 import argparse
+import sys
 from fnmatch import fnmatchcase
 from pathlib import Path
 from PIL import Image, ImageChops
@@ -105,6 +106,11 @@ def main() -> None:
     )
 
     args = parser.parse_args()
+
+    if len(sys.argv) == 1:
+        parser.print_help(sys.stderr)
+        sys.exit(1)
+
     image_path = args.input_filepath
 
     print(f"Checking {image_path}.")

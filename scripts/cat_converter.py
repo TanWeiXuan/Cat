@@ -1,5 +1,6 @@
 import argparse
 import re
+import sys
 from pathlib import Path
 from PIL import Image
 
@@ -59,6 +60,10 @@ def main() -> None:
         type=validate_path,
         help="The path to the template to convert the cat to."
     )
+
+    if len(sys.argv) == 1:
+        parser.print_help(sys.stderr)
+        sys.exit(1)
 
     args = parser.parse_args()
     input_cat_filepath = args.input_cat_filepath

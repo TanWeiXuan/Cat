@@ -2,6 +2,7 @@ import argparse
 import asyncio
 import io
 import re
+import sys
 from pathlib import Path
 from PIL import Image, ImageChops
 
@@ -138,6 +139,10 @@ async def main() -> None:
     parser.add_argument("bot_token", type=str)
     parser.add_argument("user_id", type=int)
     args = parser.parse_args()
+
+    if len(sys.argv) == 1:
+        parser.print_help(sys.stderr)
+        sys.exit(1)
 
     print(f"Converting cats to Telegram stickers...")
 
