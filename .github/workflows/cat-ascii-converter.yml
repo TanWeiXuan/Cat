@@ -1,0 +1,72 @@
+name: Cat to ASCII Converter
+
+on:
+  discussion_comment:
+    types: [created]
+
+permissions:
+  discussions: write
+  contents: read
+
+jobs:
+  run-script:
+    if: >
+      github.event.discussion.category.name == 'General' &&
+      github.event.discussion.title == 'ASCII Cats' &&
+      startsWith(github.event.comment.body, '/ascii-cat ')
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v5
+
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.13'
+
+      - name: Cache pip dependencies
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/pip
+          key: ${{ runner.os }}-pip-${{ hashFiles('scripts/requirements.txt') }}
+          restore-keys: |
+            ${{ runner.os }}-pip-
+
+      - name: Install dependencies
+        run: pip install -r scripts/requirements.txt
+
+      - name: Parse command and run script
+        id: run_script
+        run: |
+          body="${{ github.event.comment.body }}"
+          args="${body#/ascii-cat }"
+
+          echo "Running: scripts/cat_to_ascii.py $args"
+          output=$(python scripts/cat_to_ascii.py $args 2>&1)
+          safe_output=$(echo "$output" | sed 's/`/\\`/g')
+          echo "output<<EOF" >> $GITHUB_OUTPUT
+          echo "$safe_output" >> $GITHUB_OUTPUT
+          echo "EOF" >> $GITHUB_OUTPUT
+
+      - name: Reply to the comment via GraphQL
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          COMMENT_NODE_ID: ${{ github.event.comment.node_id }}
+          DISCUSSION_NODE_ID: ${{ github.event.discussion.node_id }}
+          OUTPUT: ${{ steps.run_script.outputs.output }}
+        run: |
+          # Escape output safely for GraphQL
+          escaped=$(printf "%s" "$OUTPUT" | jq -Rs .)
+          gh api graphql -f query='
+            mutation($body:String!, $replyTo:ID!, $discussionId:ID!) {
+              addDiscussionComment(input: {
+                body: $body,
+                discussionId: $discussionId,
+                replyToId: $replyTo
+              }) {
+                comment { id }
+              }
+            }' \
+            -f body="\`\`\`${OUTPUT}\`\`\`" \
+            -f replyTo="$COMMENT_NODE_ID" \
+            -f discussionId="$DISCUSSION_NODE_ID"
