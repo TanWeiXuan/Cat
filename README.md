@@ -47,21 +47,25 @@ ___
 |:--:|:--:|:--:|
 |[9](cats/cat_sitting_9.png)|[DoraMaar](cats/cat_sitting_DoraMaar.png)|[Jack-O-Lantern](cats/cat_sitting_Jack-O-Lantern.png)|
 
-|<img src="cats/cat_sitting_O_O.png" width="200" />|<img src="cats/cat_sitting_^_^.png" width="200" />|<img src="cats/cat_sitting_aang.png" width="200" />|
+|<img src="cats/cat_sitting_O_O.png" width="200" />|<img src="cats/cat_sitting_X_X.png" width="200" />|<img src="cats/cat_sitting_^_^.png" width="200" />|
 |:--:|:--:|:--:|
-|[O_O](cats/cat_sitting_O_O.png)|[^_^](cats/cat_sitting_^_^.png)|[aang](cats/cat_sitting_aang.png)|
+|[O_O](cats/cat_sitting_O_O.png)|[X_X](cats/cat_sitting_X_X.png)|[^_^](cats/cat_sitting_^_^.png)|
 
-|<img src="cats/cat_sitting_angry.png" width="200" />|<img src="cats/cat_sitting_annoyed.png" width="200" />|<img src="cats/cat_sitting_batman.png" width="200" />|
+|<img src="cats/cat_sitting_aang.png" width="200" />|<img src="cats/cat_sitting_angry.png" width="200" />|<img src="cats/cat_sitting_angry2.png" width="200" />|
 |:--:|:--:|:--:|
-|[angry](cats/cat_sitting_angry.png)|[annoyed](cats/cat_sitting_annoyed.png)|[batman](cats/cat_sitting_batman.png)|
+|[aang](cats/cat_sitting_aang.png)|[angry](cats/cat_sitting_angry.png)|[angry2](cats/cat_sitting_angry2.png)|
 
-|<img src="cats/cat_sitting_battlecat.png" width="200" />|<img src="cats/cat_sitting_bulbasaur.png" width="200" />|<img src="cats/cat_sitting_cat.png" width="200" />|
+|<img src="cats/cat_sitting_annoyed.png" width="200" />|<img src="cats/cat_sitting_batman.png" width="200" />|<img src="cats/cat_sitting_battlecat.png" width="200" />|
 |:--:|:--:|:--:|
-|[battlecat](cats/cat_sitting_battlecat.png)|[bulbasaur](cats/cat_sitting_bulbasaur.png)|[cat](cats/cat_sitting_cat.png)|
+|[annoyed](cats/cat_sitting_annoyed.png)|[batman](cats/cat_sitting_batman.png)|[battlecat](cats/cat_sitting_battlecat.png)|
 
-|<img src="cats/cat_sitting_chiyo-chichi.png" width="200" />|<img src="cats/cat_sitting_creeper.png" width="200" />|<img src="cats/cat_sitting_dino_ranger.png" width="200" />|
+|<img src="cats/cat_sitting_bulbasaur.png" width="200" />|<img src="cats/cat_sitting_cat.png" width="200" />|<img src="cats/cat_sitting_chiyo-chichi.png" width="200" />|
 |:--:|:--:|:--:|
-|[chiyo-chichi](cats/cat_sitting_chiyo-chichi.png)|[creeper](cats/cat_sitting_creeper.png)|[dino_ranger](cats/cat_sitting_dino_ranger.png)|
+|[bulbasaur](cats/cat_sitting_bulbasaur.png)|[cat](cats/cat_sitting_cat.png)|[chiyo-chichi](cats/cat_sitting_chiyo-chichi.png)|
+
+|<img src="cats/cat_sitting_creeper.png" width="200" />|<img src="cats/cat_sitting_descartes.png" width="200" />|<img src="cats/cat_sitting_dino_ranger.png" width="200" />|
+|:--:|:--:|:--:|
+|[creeper](cats/cat_sitting_creeper.png)|[descartes](cats/cat_sitting_descartes.png)|[dino_ranger](cats/cat_sitting_dino_ranger.png)|
 
 |<img src="cats/cat_sitting_disturbed.png" width="200" />|<img src="cats/cat_sitting_ditto1.png" width="200" />|<img src="cats/cat_sitting_dizzy.png" width="200" />|
 |:--:|:--:|:--:|
