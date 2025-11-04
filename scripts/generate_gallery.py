@@ -22,7 +22,7 @@ def group_list(ungrouped_list: list[str], elements_per_group: int) -> list[list[
     ]
 
 def get_image_html(image_folder_name: str, filename: str) -> str:
-    return f'<img src="{image_folder_name}/{filename}" width="{IMAGE_SIZE}" />'
+    return f'<img loading="lazy" src="{image_folder_name}/{filename}" width="{IMAGE_SIZE}" />'
 
 def get_cat_name(image_prefix: str, filename: str) -> str:
     # This assumes that filename contains image_prefix, no check done for this
