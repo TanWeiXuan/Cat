@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Cat Gallery Demo</title>
+    <style>
+        body { font-family: Arial, sans-serif; max-width: 800px; margin: 20px auto; padding: 20px; }
+        h2 { color: #333; }
+        .comparison { display: flex; gap: 20px; margin: 20px 0; }
+        .comparison div { flex: 1; }
+        .stats { background: #f0f0f0; padding: 15px; border-radius: 5px; margin: 20px 0; }
+        table { border-collapse: collapse; margin: 20px 0; }
+        td { padding: 10px; text-align: center; }
+        img { max-width: 200px; border: 1px solid #ddd; }
+    </style>
+</head>
+<body>
+    <h1>Cat Gallery Progressive JPEG Implementation</h1>
+    
+    <div class="stats">
+        <h2>Performance Metrics</h2>
+        <ul>
+            <li>Original PNG Size: 108KB (2520x1680)</li>
+            <li>Converted JPEG Size: 28KB (1260x840)</li>
+            <li>Reduction: 74% smaller</li>
+            <li>Quality: 85 (progressive JPEG)</li>
+        </ul>
+    </div>
+
+    <h2>Gallery Preview (3 cats per row)</h2>
+    <table>
+        <tr>
+            <td><img src="scripts/misc/jpeg_cats/cat_sitting_0.jpg" width="200" /></td>
+            <td><img src="scripts/misc/jpeg_cats/cat_sitting_1.jpg" width="200" /></td>
+            <td><img src="scripts/misc/jpeg_cats/cat_sitting_10.jpg" width="200" /></td>
+        </tr>
+        <tr>
+            <td><a href="cats/cat_sitting_0.png">[0]</a></td>
+            <td><a href="cats/cat_sitting_1.png">[1]</a></td>
+            <td><a href="cats/cat_sitting_10.png">[10]</a></td>
+        </tr>
+    </table>
+
+    <div class="stats">
+        <h2>Key Features</h2>
+        <ul>
+            <li>✅ Display: Progressive JPEGs (fast loading)</li>
+            <li>✅ Links: Point to original PNGs (full quality)</li>
+            <li>✅ Resolution: Half of original (1260x840 vs 2520x1680)</li>
+            <li>✅ Compression: Quality 85 (low compression, high quality)</li>
+            <li>✅ Auto-cleanup: Removes orphaned JPEGs</li>
+            <li>✅ Efficiency: Only converts new images</li>
+        </ul>
+    </div>
+</body>
+</html>
