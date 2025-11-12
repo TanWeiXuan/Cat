@@ -25,6 +25,8 @@ jobs:
         with:
           python-version: '3.13'
 
+      - run: pip install -r scripts/requirements.txt
+
       - run: python scripts/generate_gallery.py
       
       - run: |
