@@ -1,18 +1,84 @@
 # Cat.
 
-#### How to contribute:
-1. Create a copy of `cat_sitting_template.png` or `cat_standing_template.png` in the `cat_templates` folder.
-2. Open the file in *Microsoft Paint*.
-3. Edit the image, following these guidelines:
-   - Only use the `Brush` tool
-   - Use **Black** (`#000000`)
-   - Only draw within the facial region
-   - Avoid exceeding the outline of the template
-   - A mouse or touchpad is recommended
-4. Rename the file to `cat_sitting_XXXXXXXX.png` or `cat_standing_XXXXXXXX.png`, replacing `XXXXXXXX` with something that describes what you have drawn and place it in the appropriate folder.
-5. Raise a pull request with your newly drawn sitting/standing cat(s).
-   - Sitting cats should be added to the `cats/` folder
-   - Standing cats should be added to the `cats_2/` folder
+🐱 Contributing Guide – Add Your Own Cat!
+
+Thank you for your interest in contributing to this project!
+Follow the steps below to add your own custom sitting or standing cat drawing.
+
+✅ 1. Fork the Repository
+
+Click the Fork button on the top-right of this repo to create your own copy.
+
+✅ 2. Choose a Cat Template
+
+Inside the cat_templates/ folder, you’ll find two base templates:
+
+cat_sitting_template.png
+
+cat_standing_template.png
+
+Copy the one you want to draw on.
+
+✅ 3. Open the Template in Microsoft Paint
+
+Use Microsoft Paint (recommended for consistency).
+
+🎨 4. Drawing Rules
+
+To keep all cats stylistically consistent:
+
+✔ Use only the Brush tool
+
+✔ Color: Black (#000000)
+
+✔ Draw ONLY within the face region
+
+✔ Do NOT draw outside the cat outline
+
+✔ A mouse or touchpad works best
+
+✔ Keep it simple and clean!
+
+📁 5. Save Your Drawing
+
+Rename your file using this format:
+
+For sitting cats:
+cat_sitting_<description>.png
+
+For standing cats:
+cat_standing_<description>.png
+
+Examples:
+
+cat_sitting_smiley.png
+
+cat_standing_angry_eyes.png
+
+📂 6. Add the File to the Correct Folder
+
+Place your finished drawing inside:
+
+Sitting cats → cats/
+
+Standing cats → cats_2/
+
+🚀 7. Create a Pull Request
+
+Commit your changes and open a Pull Request.
+
+Make sure your PR includes:
+
+Your new cat(s)
+
+A short description of what you drew
+
+We’ll review and merge it soon!
+
+💛 Thank You!
+
+Your contribution helps grow our adorable open-source cat collection 🐾
+Have fun and happy drawing!
   
 #### Cat Web Editor (WIP)
 
