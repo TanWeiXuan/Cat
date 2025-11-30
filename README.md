@@ -135,13 +135,13 @@ ___
 |:--:|:--:|:--:|
 |[tired](cats/cat_sitting_tired.png)|[tobi](cats/cat_sitting_tobi.png)|[tobi_mask](cats/cat_sitting_tobi_mask.png)|
 
-|<img loading="lazy" src="scripts/misc/jpeg_cats/cat_sitting_tomodachi.jpg" width="200" />|<img loading="lazy" src="scripts/misc/jpeg_cats/cat_sitting_unamused.jpg" width="200" />|<img loading="lazy" src="scripts/misc/jpeg_cats/cat_sitting_uwu.jpg" width="200" />|
+|<img loading="lazy" src="scripts/misc/jpeg_cats/cat_sitting_tomodachi.jpg" width="200" />|<img loading="lazy" src="scripts/misc/jpeg_cats/cat_sitting_unamused.jpg" width="200" />|<img loading="lazy" src="scripts/misc/jpeg_cats/cat_sitting_unamused2.jpg" width="200" />|
 |:--:|:--:|:--:|
-|[tomodachi](cats/cat_sitting_tomodachi.png)|[unamused](cats/cat_sitting_unamused.png)|[uwu](cats/cat_sitting_uwu.png)|
+|[tomodachi](cats/cat_sitting_tomodachi.png)|[unamused](cats/cat_sitting_unamused.png)|[unamused2](cats/cat_sitting_unamused2.png)|
 
-|<img loading="lazy" src="scripts/misc/jpeg_cats/cat_sitting_vampire.jpg" width="200" />|
-|:--:|
-|[vampire](cats/cat_sitting_vampire.png)|
+|<img loading="lazy" src="scripts/misc/jpeg_cats/cat_sitting_uwu.jpg" width="200" />|<img loading="lazy" src="scripts/misc/jpeg_cats/cat_sitting_vampire.jpg" width="200" />|
+|:--:|:--:|
+|[uwu](cats/cat_sitting_uwu.png)|[vampire](cats/cat_sitting_vampire.png)|
 ___
 #### Standing Cat gallery.
 
