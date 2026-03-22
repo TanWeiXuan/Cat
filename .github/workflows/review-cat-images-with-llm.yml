@@ -1,0 +1,274 @@
+name: Review cat images in PR with GPT-5.4
+
+on:
+  pull_request_target:
+    types:
+      - opened
+      - reopened
+      - synchronize
+    branches:
+      - main
+    paths:
+      - 'cats/*.png'
+      - 'cats_2/*.png'
+
+permissions:
+  contents: read
+  issues: write
+  pull-requests: write
+
+jobs:
+  review-cats:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          repository: ${{ github.event.pull_request.head.repo.full_name }}
+          ref: ${{ github.event.pull_request.head.sha }}
+          path: pr-code
+          fetch-depth: 0
+
+      - uses: actions/checkout@v5
+        with:
+          repository: ${{ github.repository }}
+          ref: ${{ github.event.pull_request.base.sha }}
+          path: base-repo
+          fetch-depth: 0
+
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.13'
+
+      - name: Determine new or modified cat images
+        id: changes
+        shell: bash
+        run: |
+          set -euo pipefail
+          cd pr-code
+
+          git remote add upstream "https://x-access-token:${{ github.token }}@github.com/${{ github.repository }}.git"
+          git fetch --no-tags upstream "${{ github.base_ref }}"
+          merge_base="$(git merge-base "upstream/${{ github.base_ref }}" HEAD)"
+          png_files="$(git diff --name-status "$merge_base" HEAD \
+            | awk '$1=="A" || $1=="M" {print $2}' \
+            | grep -E '^(cats|cats_2)/.*\.png$' || true)"
+
+          {
+            echo "png_files<<EOF"
+            echo "$png_files"
+            echo "EOF"
+          } >> "$GITHUB_OUTPUT"
+
+      - name: Generate GPT-5.4 cat review
+        id: review
+        if: steps.changes.outputs.png_files != ''
+        env:
+          OAI_API_KEY: ${{ secrets.OAI_API_KEY }}
+          CHANGED_FILES: ${{ steps.changes.outputs.png_files }}
+          BASE_REPO: ${{ github.repository }}
+          BASE_SHA: ${{ github.event.pull_request.base.sha }}
+          HEAD_REPO: ${{ github.event.pull_request.head.repo.full_name }}
+          HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+        run: |
+          set -euo pipefail
+          python <<'PY'
+          import base64
+          import json
+          import os
+          import re
+          import urllib.request
+          from pathlib import Path
+
+          root = Path.cwd()
+          pr_root = root / "pr-code"
+          base_root = root / "base-repo"
+          readme_path = base_root / "README.md"
+          changed_files = [line.strip() for line in os.environ["CHANGED_FILES"].splitlines() if line.strip()]
+
+          if not changed_files:
+              raise SystemExit("No changed files to review.")
+
+          readme_text = readme_path.read_text(encoding="utf-8")
+          match = re.search(
+              r"#### How to contribute:\n(?P<body>.*?)(?:\n#### |\Z)",
+              readme_text,
+              re.DOTALL,
+          )
+          if not match:
+              raise SystemExit("Could not find contribution instructions in README.md")
+
+          contribution_instructions = "#### How to contribute:\n" + match.group("body").strip()
+
+          def image_data_url(path: Path) -> str:
+              encoded = base64.b64encode(path.read_bytes()).decode("ascii")
+              return f"data:image/png;base64,{encoded}"
+
+          def template_for(cat_path: str) -> str:
+              if cat_path.startswith("cats/"):
+                  return "cat_templates/cat_sitting_template.png"
+              if cat_path.startswith("cats_2/"):
+                  return "cat_templates/cat_standing_template.png"
+              raise ValueError(f"Unsupported cat path: {cat_path}")
+
+          def raw_url(repo: str, sha: str, path: str) -> str:
+              return f"https://raw.githubusercontent.com/{repo}/{sha}/{path}"
+
+          def extract_output_text(response_json: dict) -> str:
+              text = response_json.get("output_text")
+              if text:
+                  return text.strip()
+
+              parts = []
+              for item in response_json.get("output", []):
+                  for content in item.get("content", []):
+                      if content.get("type") in {"output_text", "text"}:
+                          value = content.get("text")
+                          if isinstance(value, str):
+                              parts.append(value)
+                  if item.get("type") == "message" and item.get("content"):
+                      for content in item["content"]:
+                          text_value = content.get("text")
+                          if isinstance(text_value, str):
+                              parts.append(text_value)
+              return "\n".join(part.strip() for part in parts if part.strip()).strip()
+
+          reviews = []
+          for cat_path in changed_files:
+              submitted_path = pr_root / cat_path
+              template_path = base_root / template_for(cat_path)
+
+              if not submitted_path.exists():
+                  raise SystemExit(f"Submitted cat image not found: {submitted_path}")
+              if not template_path.exists():
+                  raise SystemExit(f"Template image not found: {template_path}")
+
+              prompt = (
+                  "You are reviewing a pull request contribution to a cat image repository. "
+                  "The first image is the original template and the second image is the contributed cat. "
+                  "Use the contribution instructions below to inform your review, focusing on whether the cat appears to stay within the template constraints and whether the design is creative and visually effective. "
+                  "Respond with exactly one paragraph review followed by a final line in the format 'Rating: X/10'.\n\n"
+                  f"Contribution instructions:\n{contribution_instructions}"
+              )
+
+              payload = {
+                  "model": "gpt-5.4",
+                  "input": [
+                      {
+                          "role": "user",
+                          "content": [
+                              {"type": "input_text", "text": prompt},
+                              {"type": "input_image", "image_url": image_data_url(template_path)},
+                              {"type": "input_image", "image_url": image_data_url(submitted_path)},
+                          ],
+                      }
+                  ],
+              }
+
+              request = urllib.request.Request(
+                  "https://api.openai.com/v1/responses",
+                  data=json.dumps(payload).encode("utf-8"),
+                  headers={
+                      "Authorization": f"Bearer {os.environ['OAI_API_KEY']}",
+                      "Content-Type": "application/json",
+                  },
+                  method="POST",
+              )
+
+              with urllib.request.urlopen(request) as response:
+                  response_json = json.loads(response.read().decode("utf-8"))
+
+              review_text = extract_output_text(response_json)
+              if not review_text:
+                  raise SystemExit(f"OpenAI API returned no review text for {cat_path}")
+
+              reviews.append(
+                  {
+                      "cat_path": cat_path,
+                      "template_path": str(template_path.relative_to(base_root)),
+                      "review_text": review_text,
+                  }
+              )
+
+          marker = "<!-- llm-cat-image-review -->"
+          lines = [
+              marker,
+              "## LLM Cat Image Review",
+              "",
+              "_This pull request review was performed by an LLM using GPT-5.4. Treat it as automated feedback, not a final human approval._",
+              "",
+          ]
+
+          for review in reviews:
+              lines.extend(
+                  [
+                      f"### `{review['cat_path']}`",
+                      "",
+                      f"**Template reference:** `{review['template_path']}`  ",
+                      f"**Submitted cat:** `{review['cat_path']}`",
+                      "",
+                      f"![Template image]({raw_url(os.environ['BASE_REPO'], os.environ['BASE_SHA'], review['template_path'])})",
+                      "",
+                      f"![Submitted cat image]({raw_url(os.environ['HEAD_REPO'], os.environ['HEAD_SHA'], review['cat_path'])})",
+                      "",
+                      "**GPT-5.4 review**",
+                      "",
+                      review["review_text"],
+                      "",
+                      "<details>",
+                      "<summary>Contribution instructions from README</summary>",
+                      "",
+                      contribution_instructions,
+                      "",
+                      "</details>",
+                      "",
+                  ]
+              )
+
+          body = "\n".join(lines).strip() + "\n"
+          output_path = Path(os.environ["GITHUB_OUTPUT"])
+          with output_path.open("a", encoding="utf-8") as fh:
+              fh.write("comment_body<<EOF\n")
+              fh.write(body)
+              fh.write("EOF\n")
+          PY
+
+      - name: Create or update PR comment with review
+        if: steps.review.outputs.comment_body != ''
+        uses: actions/github-script@v7
+        env:
+          COMMENT_BODY: ${{ steps.review.outputs.comment_body }}
+        with:
+          github-token: ${{ github.token }}
+          script: |
+            const marker = '<!-- llm-cat-image-review -->';
+            const { owner, repo } = context.repo;
+            const issue_number = context.payload.pull_request.number;
+            const body = process.env.COMMENT_BODY;
+
+            const comments = await github.paginate(github.rest.issues.listComments, {
+              owner,
+              repo,
+              issue_number,
+              per_page: 100,
+            });
+
+            const existing = comments.find((comment) =>
+              comment.user?.type === 'Bot' && comment.body?.includes(marker)
+            );
+
+            if (existing) {
+              await github.rest.issues.updateComment({
+                owner,
+                repo,
+                comment_id: existing.id,
+                body,
+              });
+            } else {
+              await github.rest.issues.createComment({
+                owner,
+                repo,
+                issue_number,
+                body,
+              });
+            }
