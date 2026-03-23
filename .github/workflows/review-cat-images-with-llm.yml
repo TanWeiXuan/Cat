@@ -147,7 +147,7 @@ jobs:
                   "You are reviewing a pull request contribution to a cat image repository. "
                   "The first image is the original template and the second image is the contributed cat. "
                   "Use the contribution instructions below to inform your review, focusing on whether the cat appears to stay within the template constraints and whether the design is creative and visually effective. "
-                  "Respond with exactly one paragraph review followed by a final line in the format 'Rating: X/10'.\n\n"
+                  "Be critical in your asessment and respond with exactly one paragraph review followed by a final line in the format 'Rating: X/10'.\n\n"
                   f"Contribution instructions:\n{contribution_instructions}"
               )
 
