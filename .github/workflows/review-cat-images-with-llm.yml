@@ -122,15 +122,9 @@ jobs:
               parts = []
               for item in response_json.get("output", []):
                   for content in item.get("content", []):
-                      if content.get("type") in {"output_text", "text"}:
-                          value = content.get("text")
-                          if isinstance(value, str):
-                              parts.append(value)
-                  if item.get("type") == "message" and item.get("content"):
-                      for content in item["content"]:
-                          text_value = content.get("text")
-                          if isinstance(text_value, str):
-                              parts.append(text_value)
+                      text_value = content.get("text")
+                      if isinstance(text_value, str):
+                          parts.append(text_value)
               return "\n".join(part.strip() for part in parts if part.strip()).strip()
 
           reviews = []
