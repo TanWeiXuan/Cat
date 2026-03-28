@@ -6,7 +6,6 @@
 3. Edit the image, following these guidelines:
    - Only use the `Brush` tool
    - Use **Black** (`#000000`)
-   - Only draw within the facial region
    - Avoid exceeding the outline of the template
    - A mouse or touchpad is recommended
 4. Rename the file to `cat_sitting_XXXXXXXX.png` or `cat_standing_XXXXXXXX.png`, replacing `XXXXXXXX` with something that describes what you have drawn and place it in the appropriate folder.
