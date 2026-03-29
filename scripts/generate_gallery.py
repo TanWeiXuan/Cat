@@ -4,20 +4,28 @@ from PIL import Image
 IMAGE_SIZE = 200
 CATS_PER_ROW = 3
 
-SITTING_CATS_IMAGE_FOLDER_NAME = "cats"
-STANDING_CATS_IMAGE_FOLDER_NAME = "cats_2"
+BASE_DIR = Path(__file__).parent.parent.resolve()
+README_FILE_PATH = BASE_DIR / "README.md"
 
-SITTING_CATS_IMAGE_FOLDER_PATH = Path(__file__).parent.parent.resolve() / SITTING_CATS_IMAGE_FOLDER_NAME
-STANDING_CATS_IMAGE_FOLDER_PATH = Path(__file__).parent.parent.resolve() / STANDING_CATS_IMAGE_FOLDER_NAME
-README_FILE_PATH = Path(__file__).parent.parent.resolve() / "README.md"
+CAT_TYPES = {
+    "sitting": {
+        "display_name": "Sitting Cat",
+        "png_folder_name": "cats",
+        "jpeg_folder_name": "scripts/misc/jpeg_cats",
+        "image_prefix": "cat_sitting_",
+    },
+    "standing": {
+        "display_name": "Standing Cat",
+        "png_folder_name": "cats_2",
+        "jpeg_folder_name": "scripts/misc/jpeg_cats_2",
+        "image_prefix": "cat_standing_",
+    },
+}
 
-JPEG_CATS_FOLDER_NAME = "scripts/misc/jpeg_cats"
-JPEG_CATS_2_FOLDER_NAME = "scripts/misc/jpeg_cats_2"
-JPEG_CATS_FOLDER_PATH = Path(__file__).parent.parent.resolve() / JPEG_CATS_FOLDER_NAME
-JPEG_CATS_2_FOLDER_PATH = Path(__file__).parent.parent.resolve() / JPEG_CATS_2_FOLDER_NAME
+for config in CAT_TYPES.values():
+    config["png_folder_path"] = BASE_DIR / config["png_folder_name"]
+    config["jpeg_folder_path"] = BASE_DIR / config["jpeg_folder_name"]
 
-SITTING_CATS_IMAGE_PREFIX = "cat_sitting_"
-STANDING_CATS_IMAGE_PREFIX = "cat_standing_"
 PNG_EXTENSION = ".png"
 JPEG_EXTENSION = ".jpg"
 CENTER_JUSTIFICATION_ELEMENT = ":--:"
@@ -115,50 +123,56 @@ def generate_gallery_table(image_prefix: str, jpeg_folder_name: str, png_folder_
 
     return image_row + center_justification_row + caption_row
 
-def update_cat_gallery_in_readme(markdown_filepath: Path, sitting_cat_gallery_markdown_str: str, standing_cat_gallery_markdown_str: str) -> None:
+def update_cat_gallery_in_readme(markdown_filepath: Path, gallery_markdown_by_cat_type: dict[str, str]) -> None:
     """
     Updates the contents in the 'Cat Gallery' section in provided markdown file
     """
     text = markdown_filepath.read_text(encoding="utf-8")
     gallery_heading = R"### Cat gallery."
     idx = text.find(gallery_heading)
-    updated_text = text[: idx + len(gallery_heading)] + "\n" + "___\n" + "#### Sitting Cat gallery.\n" + sitting_cat_gallery_markdown_str.strip() + '\n'
-    updated_text +=  "___" + "\n#### Standing Cat gallery.\n\n" + standing_cat_gallery_markdown_str.strip() + '\n'
+    updated_text = text[: idx + len(gallery_heading)] + "\n"
+    for cat_type, config in CAT_TYPES.items():
+        gallery_markdown = gallery_markdown_by_cat_type.get(cat_type, "")
+        updated_text += (
+            "___\n"
+            f"#### {config['display_name']} gallery.\n\n"
+            f"{gallery_markdown.strip()}\n"
+        )
     markdown_filepath.write_text(updated_text)
 
 
 def main() -> None:
-    # Ensure JPEG folders exist
-    JPEG_CATS_FOLDER_PATH.mkdir(parents=True, exist_ok=True)
-    JPEG_CATS_2_FOLDER_PATH.mkdir(parents=True, exist_ok=True)
+    gallery_markdown_by_cat_type: dict[str, str] = {}
 
-    # Process images: convert PNGs to JPEGs and clean up orphaned JPEGs
-    print("Processing sitting cats...")
-    sitting_cat_jpeg_filenames = process_images(
-        SITTING_CATS_IMAGE_FOLDER_PATH,
-        JPEG_CATS_FOLDER_PATH,
-        SITTING_CATS_IMAGE_PREFIX
-    )
+    for cat_type, config in CAT_TYPES.items():
+        # Ensure JPEG folders exist
+        config["jpeg_folder_path"].mkdir(parents=True, exist_ok=True)
 
-    print("Processing standing cats...")
-    standing_cat_jpeg_filenames = process_images(
-        STANDING_CATS_IMAGE_FOLDER_PATH,
-        JPEG_CATS_2_FOLDER_PATH,
-        STANDING_CATS_IMAGE_PREFIX
-    )
+        # Process images: convert PNGs to JPEGs and clean up orphaned JPEGs
+        print(f"Processing {cat_type} cats...")
+        jpeg_filenames = process_images(
+            config["png_folder_path"],
+            config["jpeg_folder_path"],
+            config["image_prefix"],
+        )
+        print(f"Detected {len(jpeg_filenames)} {cat_type} cats.")
 
-    print(f"Detected {len(sitting_cat_jpeg_filenames)} sitting cats.")
-    print(f"Detected {len(standing_cat_jpeg_filenames)} standing cats.")
-
-    grouped_sitting_cat_filenames = group_list(ungrouped_list=sitting_cat_jpeg_filenames, elements_per_group=CATS_PER_ROW)
-    grouped_standing_cat_filenames = group_list(ungrouped_list=standing_cat_jpeg_filenames, elements_per_group=CATS_PER_ROW)
-
-    sitting_cats_table_markdown = "\n".join([generate_gallery_table(SITTING_CATS_IMAGE_PREFIX, JPEG_CATS_FOLDER_NAME, SITTING_CATS_IMAGE_FOLDER_NAME, image_filenames) for image_filenames in grouped_sitting_cat_filenames])
-    standing_cats_table_markdown = "\n".join([generate_gallery_table(STANDING_CATS_IMAGE_PREFIX, JPEG_CATS_2_FOLDER_NAME, STANDING_CATS_IMAGE_FOLDER_NAME, image_filenames) for image_filenames in grouped_standing_cat_filenames])
+        grouped_cat_filenames = group_list(ungrouped_list=jpeg_filenames, elements_per_group=CATS_PER_ROW)
+        gallery_markdown_by_cat_type[cat_type] = "\n".join(
+            [
+                generate_gallery_table(
+                    config["image_prefix"],
+                    config["jpeg_folder_name"],
+                    config["png_folder_name"],
+                    image_filenames,
+                )
+                for image_filenames in grouped_cat_filenames
+            ]
+        )
 
     print("Updating README.md...")
 
-    update_cat_gallery_in_readme(README_FILE_PATH, sitting_cats_table_markdown, standing_cats_table_markdown)
+    update_cat_gallery_in_readme(README_FILE_PATH, gallery_markdown_by_cat_type)
 
     print("Updated README.md.")
 
