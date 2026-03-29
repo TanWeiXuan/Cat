@@ -10,6 +10,7 @@ on:
       - main
     paths:
       - 'cats/*.png'
+      - 'cats_2/*.png'
 
 permissions:
   issues: write
@@ -51,12 +52,12 @@ jobs:
           if [[ "${{ github.event.action }}" == "opened" || "${{ github.event.action }}" == "reopened" ]]; then
               png_files=$(git diff --name-status $(git merge-base origin/${{ github.base_ref }} HEAD) HEAD \
                           | awk '$1=="A" || $1=="M" {print $2}' \
-                          | grep '^cats/.*\.png$' || true)
+                          | grep -E '^(cats|cats_2)/.*\.png$' || true)
           else
               latest_commit="${{ github.event.after }}"
               png_files=$(git diff-tree --no-commit-id --name-status -r "$latest_commit" \
                           | awk '$1=="A" || $1=="M" {print $2}' \
-                          | grep '^cats/.*\.png$' || true)
+                          | grep -E '^(cats|cats_2)/.*\.png$' || true)
           fi
 
           echo "png_files<<EOF" >> $GITHUB_OUTPUT
