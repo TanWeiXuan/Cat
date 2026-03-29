@@ -23,6 +23,18 @@ Submitted cats are also available as Telegram stickers!
 - **Sitting Cats**: [Add to Telegram](https://t.me/addstickers/Sitting_Cats_by_CatStickerMaker_bot)
 - **Standing Cats**: [Add to Telegram](https://t.me/addstickers/Standing_Cats_by_CatStickerMaker_bot)
 
+#### Python script dependencies
+
+Install dependencies per script from the `requirements/` directory:
+
+- `pip install -r requirements/generate_gallery.txt`
+- `pip install -r requirements/cat_converter.txt`
+- `pip install -r requirements/cat_checker.txt`
+- `pip install -r requirements/cat_telegram_sticker_maker.txt`
+- `pip install -r requirements/cat_to_ascii.txt`
+
+`requirements/base.txt` contains shared dependencies used across scripts.
+
 #### Cat gallery.
 ___
 #### Sitting Cat gallery.

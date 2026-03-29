@@ -1,0 +1,4 @@
+-r base.txt
+numpy==2.3.4
+opencv_python>=4.11
+python-telegram-bot==22.5
