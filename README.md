@@ -25,15 +25,15 @@ Submitted cats are also available as Telegram stickers!
 
 #### Python script dependencies
 
-Install dependencies per script from the `requirements/` directory:
+Install dependencies per script from the `scripts/requirements/` directory:
 
-- `pip install -r requirements/generate_gallery.txt`
-- `pip install -r requirements/cat_converter.txt`
-- `pip install -r requirements/cat_checker.txt`
-- `pip install -r requirements/cat_telegram_sticker_maker.txt`
-- `pip install -r requirements/cat_to_ascii.txt`
+- `pip install -r scripts/requirements/generate_gallery.txt`
+- `pip install -r scripts/requirements/cat_converter.txt`
+- `pip install -r scripts/requirements/cat_checker.txt`
+- `pip install -r scripts/requirements/cat_telegram_sticker_maker.txt`
+- `pip install -r scripts/requirements/cat_to_ascii.txt`
 
-`requirements/base.txt` contains shared dependencies used across scripts.
+`scripts/requirements/base.txt` contains shared dependencies used across scripts.
 
 #### Cat gallery.
 ___
