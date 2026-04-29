@@ -1,4 +1,4 @@
-name: Review cat images in PR with GPT-5.4
+name: Review cat images in PR with GPT-5.5
 
 on:
   pull_request_target:
@@ -60,7 +60,7 @@ jobs:
             echo "EOF"
           } >> "$GITHUB_OUTPUT"
 
-      - name: Generate GPT-5.4 cat review
+      - name: Generate GPT-5.5 cat review
         id: review
         if: steps.changes.outputs.png_files != ''
         env:
@@ -146,7 +146,7 @@ jobs:
               )
 
               payload = {
-                  "model": "gpt-5.4",
+                  "model": "gpt-5.5",
                   "input": [
                       {
                           "role": "user",
@@ -189,7 +189,7 @@ jobs:
               marker,
               "## LLM Cat Image Review",
               "",
-              "_This pull request review was performed by an LLM using GPT-5.4. Treat it as automated feedback, not a final human approval._",
+              "_This pull request review was performed by an LLM using GPT-5.5. Treat it as automated feedback, not a final human approval._",
               "",
           ]
 
@@ -205,7 +205,7 @@ jobs:
                       "",
                       f"![Submitted cat image]({raw_url(os.environ['HEAD_REPO'], os.environ['HEAD_SHA'], review['cat_path'])})",
                       "",
-                      "**GPT-5.4 review**",
+                      "**GPT-5.5 review**",
                       "",
                       review["review_text"],
                       "",
